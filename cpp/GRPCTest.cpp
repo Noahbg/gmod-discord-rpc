@@ -174,6 +174,15 @@ LUA_FUNCTION(UpdateDiscordStatus) {
     discordP.spectateSecret = LUA->GetString();
     LUA->GetField(1, "instance");
     discordP.instance = LUA->GetNumber();
+    LUA->GetField(1, "button0label");
+    discordP.buttons[0].label = LUA->GetString();
+    LUA->GetField(1, "button0link");
+    discordP.buttons[0].url = LUA->GetString();
+    LUA->GetField(1, "button1label");
+    discordP.buttons[1].label = LUA->GetString();
+    LUA->GetField(1, "button1link");
+    discordP.buttons[1].url = LUA->GetString();
+    
 
     Discord_UpdatePresence(&discordP);
     return 0;
